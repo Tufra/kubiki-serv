@@ -1,3 +1,0 @@
-player_name=Айнур
-donation_mode=false
-village_diplomacy=-244/87/-396,5
