@@ -28,8 +28,8 @@ cd "../$serv_dir"
 git pull origin main
 
 # copy world and mods to server
-cp -r "../$world_dir/mods" .
-cp -r "../$world_dir/NN" .
+cp -r "../$world_dir/mods" "./mods"
+cp -r "../$world_dir/world" "./world"
 
 curl -k -o ./logs/duckdns.log "https://www.duckdns.org/update?domains=$domain&token=$token&ip="
 
