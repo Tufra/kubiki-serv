@@ -3,8 +3,8 @@ Description=Minecraft server
 After=network.target
 
 [Service]
-ExecStart=/usr/mcserv/startup.sh
-ExecStop=/usr/mcserv/shutdown.sh
+ExecStart=/usr/mcserv/kubiki-serv/startup.sh
+ExecStop=/usr/mcserv/kubiki-serv/shutdown.sh
 Restart=always
 
 [Install]
