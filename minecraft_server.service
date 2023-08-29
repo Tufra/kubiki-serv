@@ -1,0 +1,11 @@
+[Unit]
+Description=Minecraft server
+After=network.target
+
+[Service]
+ExecStart=/usr/mcserv/startup.sh
+ExecStop=/usr/mcserv/shutdown.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
