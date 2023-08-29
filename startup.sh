@@ -2,7 +2,7 @@
 
 server_exec="minecraft_server.1.12.2.jar"
 world_dir="kubiki"
-serv_dir="kubiki_serv"
+serv_dir="kubiki-serv"
 world_repo="https://github.com/Tufra/$world_dir.git"
 serv_repo="https://github.com/Tufra/$serv_dir.git"
 
@@ -28,9 +28,9 @@ cd "../$serv_dir"
 git pull origin main
 
 # copy world and mods to server
-cp "../$world_dir/mods" .
-cp "../$world_dir/NN" .
+cp -r "../$world_dir/mods" .
+cp -r "../$world_dir/NN" .
 
-echo url="https://www.duckdns.org/update?domains=$domain&token=$token&ip=" | curl -k -o ~/duckdns/duck.log -K -
+curl -k -o ./logs/duckdns.log "https://www.duckdns.org/update?domains=$domain&token=$token&ip="
 
 java -Xmx8G -jar "$server_exec" --nogui
