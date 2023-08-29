@@ -11,5 +11,10 @@ cp "$serv_dir/NN" "$world_dir/NN"
 cd "$world_dir"
 
 git add -A
-git commit -m "$message"
+git commit -am "$message"
+git push origin main
+
+cd "../$serv_dir"
+git add -A 
+git commit -am "$message"
 git push origin main
