@@ -1,6 +1,6 @@
 #!/bin/bash
 
-server_exec="minecraft_server.1.12.2.jar"
+server_exec="forge-1.12.2-14.23.5.2860.jar"
 world_dir="kubiki"
 serv_dir="kubiki-serv"
 world_repo="https://github.com/Tufra/$world_dir.git"
