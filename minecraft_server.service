@@ -5,6 +5,8 @@ After=network.target
 [Service]
 ExecStart=/usr/mcserv/kubiki-serv/startup.sh
 ExecStop=/usr/mcserv/kubiki-serv/shutdown.sh
+StandardOutput=append:/usr/mcserv/log
+StandardOutput=append:/usr/mcserv/log
 Restart=always
 
 [Install]
