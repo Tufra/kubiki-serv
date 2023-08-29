@@ -6,6 +6,9 @@ serv_dir="kubiki_serv"
 world_repo="https://github.com/Tufra/$world_dir.git"
 serv_repo="https://github.com/Tufra/$serv_dir.git"
 
+token="f28a7193-7bfc-438f-a064-f4c121cd14d9" # fuck yourself
+domain="kubiki"
+
 # clone server and mods + worlds if they do not exist
 cd /usr/mcserv
 if [[ ! -d "$world_dir" ]]; then
@@ -27,5 +30,7 @@ git pull origin main
 # copy world and mods to server
 cp "../$world_dir/mods" .
 cp "../$world_dir/NN" .
+
+echo url="https://www.duckdns.org/update?domains=$domain&token=$token&ip=" | curl -k -o ~/duckdns/duck.log -K -
 
 java -Xmx8G -jar "$server_exec" --nogui
