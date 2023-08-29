@@ -18,12 +18,10 @@ fi
 
 # pull mods and worlds
 cd "$world_dir"
-git fetch origin main
 git pull origin main
 
 # pull server
 cd "../$serv_dir"
-git fetch origin main
 git pull origin main
 
 # copy world and mods to server
