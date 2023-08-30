@@ -1,0 +1,235 @@
+---- Minecraft Crash Report ----
+
+WARNING: coremods are present:
+  GSHooksLoader (GalaxySpace-1.12.2-2.1.1.jar)
+  IELoadingPlugin (ImmersiveEngineering-core-0.12-98.jar)
+  TransformerLoader (OpenComputers-MC1.12.2-1.8.3-274990f.jar)
+  Quark Plugin (Quark-1.12.2-r1.6-178.jar)
+  CTMCorePlugin (CTM-MC1.12.2-1.0.2.31.jar)
+  MicdoodlePlugin (Galacticraft-1.12.2-4.0.6-1.jar)
+  MixinBooter (!mixinbooter-7.0.jar)
+  SteveKunGLibPlugin (SteveKunG's-Lib-mc1.12.2-v1.3.0.jar)
+  EnderCorePlugin (EnderCore-1.12.2-0.5.78-core.jar)
+Contact their authors BEFORE contacting forge
+
+// This is a token for 1 free hug. Redeem at your nearest Mojangsta: [~~HUG~~]
+
+Time: 8/30/23 7:28 PM
+Description: Ticking block entity
+
+java.lang.IllegalArgumentException: Cannot get property PropertyDirection{name=facing, clazz=class net.minecraft.util.EnumFacing, values=[down, up, north, south, west, east]} as it does not exist in BlockStateContainer{block=buildcraftcore:spring, properties=[type]}
+	at net.minecraft.block.state.BlockStateContainer$StateImplementation.func_177229_b(BlockStateContainer.java:201)
+	at techreborn.tiles.storage.TileEnergyStorage.getFacing(TileEnergyStorage.java:198)
+	at techreborn.tiles.storage.TileEnergyStorage.canProvideEnergy(TileEnergyStorage.java:124)
+	at reborncore.common.powerSystem.forge.ForgePowerHandler.tick(ForgePowerHandler.java:60)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at reborncore.common.powerSystem.TilePowerAcceptor.func_73660_a(TilePowerAcceptor.java:169)
+	at techreborn.tiles.storage.TileEnergyStorage.func_73660_a(TileEnergyStorage.java:92)
+	at net.minecraft.world.World.func_72939_s(World.java:1838)
+	at net.minecraft.world.WorldServer.func_72939_s(WorldServer.java:613)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:767)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:397)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:750)
+
+(MixinBooter) Mixins in Stacktrace:
+	net.minecraft.world.WorldServer:
+		stevekung.mods.stevekunglib.mixin.WorldServerMixin (mixins.stevekung's_lib.json)
+	net.minecraft.world.World:
+		stevekung.mods.stevekunglib.mixin.WorldMixin (mixins.stevekung's_lib.json)
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at net.minecraft.block.state.BlockStateContainer$StateImplementation.func_177229_b(BlockStateContainer.java:201)
+	at techreborn.tiles.storage.TileEnergyStorage.getFacing(TileEnergyStorage.java:198)
+	at techreborn.tiles.storage.TileEnergyStorage.canProvideEnergy(TileEnergyStorage.java:124)
+	at reborncore.common.powerSystem.forge.ForgePowerHandler.tick(ForgePowerHandler.java:60)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at reborncore.common.powerSystem.TilePowerAcceptor.func_73660_a(TilePowerAcceptor.java:169)
+	at techreborn.tiles.storage.TileEnergyStorage.func_73660_a(TileEnergyStorage.java:92)
+
+-- Block entity being ticked --
+Details:
+	Name: techreborn:low_voltage_su // techreborn.tiles.storage.TileLowVoltageSU
+	Block type: ID #3622 (tile.spring // buildcraft.core.block.BlockSpring // buildcraftcore:spring)
+	Block data value: 1 / 0x1 / 0b0001
+	Block location: World: (-437,72,-564), Chunk: (at 11,4,12 in -28,-36; contains blocks -448,0,-576 to -433,255,-561), Region: (-1,-2; contains chunks -32,-64 to -1,-33, blocks -512,0,-1024 to -1,255,-513)
+	Actual block type: ID #3622 (tile.spring // buildcraft.core.block.BlockSpring // buildcraftcore:spring)
+	Actual block data value: 1 / 0x1 / 0b0001
+Stacktrace:
+	at net.minecraft.world.World.func_72939_s(World.java:1838)
+	at net.minecraft.world.WorldServer.func_72939_s(WorldServer.java:613)
+
+-- Affected level --
+Details:
+	Level name: NN
+	All players: 1 total; [GCEntityPlayerMP['Tufra'/371, l='NN', x=-412.35, y=69.00, z=-538.84]]
+	Chunk stats: ServerChunkCache: 987 Drop: 0
+	Level seed: 0
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options: 
+	Level spawn location: World: (0,0,0), Chunk: (at 0,0,0 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 3037 game time, 3037 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 57112 (now: false), thunder time: 58448 (now: false)
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:767)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:397)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Thread.java:750)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Linux (amd64) version 5.15.0-79-generic
+	Java Version: 1.8.0_382, Private Build
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Private Build
+	Memory: 1589523984 bytes (1515 MB) / 3700424704 bytes (3529 MB) up to 7635730432 bytes (7282 MB)
+	JVM Flags: 1 total; -Xmx8G
+	IntCache: cache: 0, tcache: 2, allocated: 14, tallocated: 94
+	FML: MCP 9.42 Powered by Forge 14.23.5.2860 74 mods loaded, 74 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID                                | Version           | Source                                          | Signature                                |
+	|:------ |:--------------------------------- |:----------------- |:----------------------------------------------- |:---------------------------------------- |
+	| LCHIJA | minecraft                         | 1.12.2            | minecraft.jar                                   | None                                     |
+	| LCHIJA | mcp                               | 9.42              | minecraft.jar                                   | None                                     |
+	| LCHIJA | FML                               | 8.0.99.99         | forge-1.12.2-14.23.5.2860.jar                   | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| LCHIJA | forge                             | 14.23.5.2860      | forge-1.12.2-14.23.5.2860.jar                   | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| LCHIJA | micdoodlecore                     | 4.0.6             | minecraft.jar                                   | None                                     |
+	| LCHIJA | mixinbooter                       | 7.0               | minecraft.jar                                   | None                                     |
+	| LCHIJA | opencomputers|core                | 1.8.3             | minecraft.jar                                   | None                                     |
+	| LCHIJA | nonexistentplus                   | 2.15.1            | 1.12.2Nonexistent2.15.1.jar                     | None                                     |
+	| LCHIJA | appliedenergistics2               | rv6-stable-7      | appliedenergistics2_rv6_stable_7.jar            | None                                     |
+	| LCHIJA | galacticraftcore                  | 4.0.6             | Galacticraft-1.12.2-4.0.6-1.jar                 | None                                     |
+	| LCHIJA | galacticraftplanets               | 4.0.6             | Galacticraft-1.12.2-4.0.6-1.jar                 | None                                     |
+	| LCHIJA | asmodeuscore                      | 1.0.0             | AsmodeusCore-1.12.2-1.0.0.jar                   | None                                     |
+	| LCHIJA | quark                             | r1.6-178          | Quark-1.12.2-r1.6-178.jar                       | None                                     |
+	| LCHIJA | autoreglib                        | 1.3-32            | AutoRegLib-1.12.2-1.3-32.jar                    | None                                     |
+	| LCHIJA | backpack                          | 3.0.2             | backpack_3.0.2_1.12.2.jar                       | None                                     |
+	| LCHIJA | baubles                           | 1.5.2             | Baubles_1.12_1.5.2.jar                          | None                                     |
+	| LCHIJA | betterpingdisplay                 | 1.0               | BetterPingDisplay_1.12.2_1.0.jar                | None                                     |
+	| LCHIJA | bookshelf                         | 2.3.590           | Bookshelf_1.12.2_2.3.590.jar                    | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCHIJA | thaumcraft                        | 6.1.BETA26        | Thaumcraft_1.12.2_6.1.BETA26.jar                | None                                     |
+	| LCHIJA | botania                           | r1.10-364         | Botania-1.12.2-r1.10-364.4.jar                  | None                                     |
+	| LCHIJA | buildcraftlib                     | 7.99.24.8         | buildcraft_all_7.99.24.8_1.12.2.jar             | None                                     |
+	| LCHIJA | buildcraftcore                    | 7.99.24.8         | buildcraft_all_7.99.24.8_1.12.2.jar             | None                                     |
+	| LCHIJA | buildcraftbuilders                | 7.99.24.8         | buildcraft_all_7.99.24.8_1.12.2.jar             | None                                     |
+	| LCHIJA | buildcrafttransport               | 7.99.24.8         | buildcraft_all_7.99.24.8_1.12.2.jar             | None                                     |
+	| LCHIJA | buildcraftsilicon                 | 7.99.24.8         | buildcraft_all_7.99.24.8_1.12.2.jar             | None                                     |
+	| LCHIJA | ic2                               | 2.8.222-ex112     | industrialcraft-2-2.8.222-ex112.jar             | de041f9f6187debbc77034a344134053277aa3b0 |
+	| LCHIJA | buildcraftcompat                  | 7.99.24.8         | buildcraft_all_7.99.24.8_1.12.2.jar             | None                                     |
+	| LCHIJA | buildcraftenergy                  | 7.99.24.8         | buildcraft_all_7.99.24.8_1.12.2.jar             | None                                     |
+	| LCHIJA | buildcraftfactory                 | 7.99.24.8         | buildcraft_all_7.99.24.8_1.12.2.jar             | None                                     |
+	| LCHIJA | buildcraftrobotics                | 7.99.24.8         | buildcraft_all_7.99.24.8_1.12.2.jar             | None                                     |
+	| LCHIJA | codechickenlib                    | 3.2.3.358         | CodeChickenLib_1.12.2_3.2.3.358_universal.jar   | f1850c39b2516232a2108a7bd84d1cb5df93b261 |
+	| LCHIJA | chickenchunks                     | 2.4.0.70          | ChickenChunks_1.12_2.4.0.70_universal.jar       | f1850c39b2516232a2108a7bd84d1cb5df93b261 |
+	| LCHIJA | chisel                            | MC1.12.2-1.0.2.45 | Chisel-MC1.12.2-1.0.2.45.jar                    | None                                     |
+	| LCHIJA | redstoneflux                      | 2.1.1             | RedstoneFlux-1.12-2.1.1.1-universal.jar         | None                                     |
+	| LCHIJA | cofhcore                          | 4.6.6             | CoFHCore-1.12.2-4.6.6.1-universal.jar           | None                                     |
+	| LCHIJA | cofhworld                         | 1.4.0             | CoFHWorld-1.12.2-1.4.0.1-universal.jar          | None                                     |
+	| LCHIJA | divinerpg                         | 1.7.1             | DivineRPG_1.12.2_1.7.1.jar                      | None                                     |
+	| LCHIJA | eplus                             | 5.0.178           | EnchantingPlus_1.12.2_5.0.178.jar               | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCHIJA | endercore                         | 1.12.2-0.5.78     | EnderCore-1.12.2-0.5.78.jar                     | None                                     |
+	| LCHIJA | thermalfoundation                 | 2.6.7             | ThermalFoundation-1.12.2-2.6.7.1-universal.jar  | None                                     |
+	| LCHIJA | thermalexpansion                  | 5.5.7             | ThermalExpansion-1.12.2-5.5.7.1-universal.jar   | None                                     |
+	| LCHIJA | enderio                           | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | enderiointegrationtic             | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | enderiobase                       | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | enderioconduits                   | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | enderioconduitsappliedenergistics | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | opencomputers                     | 1.8.3             | OpenComputers-MC1.12.2-1.8.3-274990f.jar        | None                                     |
+	| LCHIJA | enderioconduitsopencomputers      | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | enderioconduitsrefinedstorage     | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | enderiointegrationforestry        | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | mantle                            | 1.12-1.3.3.55     | Mantle-1.12-1.3.3.55.jar                        | None                                     |
+	| LCHIJA | tconstruct                        | 1.12.2-2.13.0.183 | TConstruct-1.12.2-2.13.0.183.jar                | None                                     |
+	| LCHIJA | enderiointegrationticlate         | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | enderioinvpanel                   | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | enderiomachines                   | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | enderiopowertools                 | 5.3.72            | EnderIO-1.12.2-5.3.72.jar                       | None                                     |
+	| LCHIJA | enderstorage                      | 2.4.2.126         | EnderStorage_1.12.2_2.4.2.126_universal.jar     | f1850c39b2516232a2108a7bd84d1cb5df93b261 |
+	| LCHIJA | energyconverters                  | 1.3.7.30          | energyconverters_1.12.2_1.3.7.30.jar            | None                                     |
+	| LCHIJA | fastleafdecay                     | v14               | fastleafdecay-v14.jar                           | None                                     |
+	| LCHIJA | cfm                               | 6.3.0             | Furniture-Mod-6.3.2-1.12.2.jar                  | None                                     |
+	| LCHIJA | galaxyspace                       | 2.1.1             | GalaxySpace-1.12.2-2.1.1.jar                    | None                                     |
+	| LCHIJA | ironchest                         | 1.12.2-7.0.67.844 | ironchest_1.12.2_7.0.72.847.jar                 | None                                     |
+	| LCHIJA | millenaire                        | Millénaire 8.1.2  | millenaire-8.1.2-1.12.2.jar                     | None                                     |
+	| LCHIJA | mahoutsukai                       | 1.12.2-v1.19.55   | Minecraft-1.12.2-mahoutsukai-v1.19.55.jar       | None                                     |
+	| LCHIJA | stevekung's_lib                   | 1.3.0             | SteveKunG's-Lib-mc1.12.2-v1.3.0.jar             | None                                     |
+	| LCHIJA | moreplanets                       | 2.3.2             | More-Planets-1.12.2-2.3.2-GC4.0.5.jar           | None                                     |
+	| LCHIJA | projecte                          | 1.12.2-PE1.4.1    | ProjectE-1.12.2-PE1.4.1.jar                     | None                                     |
+	| LCHIJA | projectex                         | 1.2.0.40          | projectex-1.2.0.40.jar                          | None                                     |
+	| LCHIJA | reborncore                        | 3.19.1.521        | RebornCore-1.12.2-3.19.1.521-universal.jar      | 8727a3141c8ec7f173b87aa78b9b9807867c4e6b |
+	| LCHIJA | solargeneration                   | 1.3.0             | SolarGeneration_1.12.2_1.3.0.jar                | None                                     |
+	| LCHIJA | techreborn                        | 2.27.1.1076       | TechReborn-1.12.2-2.27.1.1076-universal.jar     | 8727a3141c8ec7f173b87aa78b9b9807867c4e6b |
+	| LCHIJA | thaumicenergistics                | 2.2.3             | thaumicenergistics_1.12.2_2.2.4.jar             | None                                     |
+	| LCHIJA | techreborn_compat                 | 1.0.0             | TechReborn-ModCompatibility-1.12.2-1.4.0.73.jar | 8727a3141c8ec7f173b87aa78b9b9807867c4e6b |
+	| LCHIJA | immersiveengineering              | 0.12-98           | ImmersiveEngineering_0.12_98.jar                | None                                     |
+
+	Loaded coremods (and transformers): 
+GSHooksLoader (GalaxySpace-1.12.2-2.1.1.jar)
+  galaxyspace.core.hooklib.minecraft.PrimaryClassTransformer
+IELoadingPlugin (ImmersiveEngineering-core-0.12-98.jar)
+  blusunrize.immersiveengineering.common.asm.IEClassTransformer
+TransformerLoader (OpenComputers-MC1.12.2-1.8.3-274990f.jar)
+  li.cil.oc.common.asm.ClassTransformer
+Quark Plugin (Quark-1.12.2-r1.6-178.jar)
+  vazkii.quark.base.asm.ClassTransformer
+CTMCorePlugin (CTM-MC1.12.2-1.0.2.31.jar)
+  team.chisel.ctm.client.asm.CTMTransformer
+MicdoodlePlugin (Galacticraft-1.12.2-4.0.6-1.jar)
+  micdoodle8.mods.miccore.MicdoodleTransformer
+MixinBooter (!mixinbooter-7.0.jar)
+  
+SteveKunGLibPlugin (SteveKunG's-Lib-mc1.12.2-v1.3.0.jar)
+  
+EnderCorePlugin (EnderCore-1.12.2-0.5.78-core.jar)
+  com.enderio.core.common.transform.EnderCoreTransformer
+  com.enderio.core.common.transform.SimpleMixinPatcher
+	AE2 Version: stable rv6-stable-7 for Forge 14.23.5.2768
+	Ender IO: Found the following problem(s) with your installation (That does NOT mean that Ender IO caused the crash or was involved in it in any way. We add this information to help finding common problems, not as an invitation to post any crash you encounter to Ender IO's issue tracker. Always check the stack trace above to see which mod is most likely failing.):
+                  * Offline mode for dedicated servers is NOT supported by Ender IO.
+                 This may (look up the meaning of 'may' in the dictionary if you're not sure what it means) have caused the error. Try reproducing the crash WITHOUT this/these mod(s) before reporting it.
+	Authlib is : /usr/mcserv/kubiki-serv/minecraft_server.1.12.2.jar
+
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	!!!You are looking at the diagnostics information, not at the crash.       !!!
+	!!!Scroll up until you see the line with '---- Minecraft Crash Report ----'!!!
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+	Pulsar/tconstruct loaded Pulses: 
+		- TinkerCommons (Enabled/Forced)
+		- TinkerWorld (Enabled/Not Forced)
+		- TinkerTools (Enabled/Not Forced)
+		- TinkerHarvestTools (Enabled/Forced)
+		- TinkerMeleeWeapons (Enabled/Forced)
+		- TinkerRangedWeapons (Enabled/Forced)
+		- TinkerModifiers (Enabled/Forced)
+		- TinkerSmeltery (Enabled/Not Forced)
+		- TinkerGadgets (Enabled/Not Forced)
+		- TinkerOredict (Enabled/Forced)
+		- TinkerIntegration (Enabled/Forced)
+		- TinkerFluids (Enabled/Forced)
+		- TinkerMaterials (Enabled/Forced)
+		- TinkerModelRegister (Enabled/Forced)
+		- chiselIntegration (Enabled/Not Forced)
+		- quarkIntegration (Enabled/Not Forced)
+
+	RebornCore: 
+		Plugin Engine: 0
+		RebornCore Version: 3.19.1.521
+		Runtime Debofucsation 1
+	AE2 Integration: IC2:ON, RC:OFF, MFR:OFF, Waila:OFF, Mekanism:OFF, OpenComputers:ON, THE_ONE_PROBE:OFF, TESLA:OFF, CRAFTTWEAKER:OFF
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 20; [GCEntityPlayerMP['Tufra'/371, l='NN', x=-412.35, y=69.00, z=-538.84]]
+	Is Modded: Definitely; Server brand changed to 'fml,forge'
+	Type: Dedicated Server (map_server.txt)
