@@ -29,8 +29,8 @@ git pull origin main
 
 # copy world and mods to server
 cp -r "../$world_dir/mods" "./"
-cp -r "../$world_dir/world" "./"
+cp -r "../$world_dir/NN" "./"
 
 curl -k -o ./logs/duckdns.log "https://www.duckdns.org/update?domains=$domain&token=$token&ip="
 
-java -Xmx8G -jar "$server_exec" --nogui
+java -Xmx8G -Dfml.queryResult=confirm -jar "$server_exec" --nogui
