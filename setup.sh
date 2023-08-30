@@ -31,5 +31,8 @@ chmod a+x "$startup_script"
 chmod a+x "$shutdown_script"
 echo "added execute permission to $startup_script and $shutdown_script"
 
+cd ..
+echo "server log" > "./log"
+
 systemctl daemon-reload
 echo "reloaded systemd"
