@@ -6,7 +6,7 @@ message="`date +%d_%M_%Y_%T` autocommit"
 
 cd /usr/mcserv
 
-cp -r "$serv_dir/world" "$world_dir/world"
+cp -r "$serv_dir/world" "$world_dir/"
 
 cd "$world_dir"
 
