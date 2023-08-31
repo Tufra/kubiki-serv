@@ -8,13 +8,13 @@ cd /usr/mcserv
 
 cp -r "$serv_dir/NN" "$world_dir/"
 
-cd "$world_dir"
+# cd "$world_dir"
 
-git add -A
-git commit -am "$message"
-git push origin main
+# git add -A
+# git commit -am "$message"
+#git push origin main
 
-cd "../$serv_dir"
-git add -A 
-git commit -am "$message"
-git push origin main
+#cd "../$serv_dir"
+#git add -A 
+#git commit -am "$message"
+#git push origin main
